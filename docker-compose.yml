@@ -11,8 +11,10 @@ services:
       - JWT_SECRET=your-secret-key-here
       - JWT_ALGORITHM=HS256
       - ACCESS_TOKEN_EXPIRE_MINUTES=60
+      - REDIS_URL=redis://redis:6379
     depends_on:
       - mongo
+      - redis
     volumes:
       - .:/app
     restart: unless-stopped
@@ -23,6 +25,12 @@ services:
       - "27017:27017"
     volumes:
       - mongo_data:/data/db
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
     restart: unless-stopped
 
 volumes:

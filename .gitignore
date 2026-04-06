@@ -1,0 +1,17 @@
+# Environments
+venv/
+.env
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# IDE & OS
+.DS_Store
+.idea/
+.vscode/
+
+# Ignore local testing scripts so they don't bloat the repo
+app/script.py
+app/benchmark.py
